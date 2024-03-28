@@ -262,7 +262,8 @@ Password: ...
 
 When we logged into instance A via the webapp, we were also logged into instance B.
 
-When we changed the email address on instance A, the one on B was also changed. We can therefore assert that both servers are connected to the same database.
+We changed the email address on instance A and the one on B was also changed. 
+We can therefore assert that both servers are connected to the same database.
 ```
 
 ### Change the profil picture
