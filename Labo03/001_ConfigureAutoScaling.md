@@ -1,4 +1,4 @@
-# Task 002 - Configure Auto Scaling
+# Task 001 - Configure Auto Scaling
 
 ![Schema](./img/CLD_AWS_INFA.PNG)
 
@@ -10,11 +10,11 @@
 
 * Networks (RTE-TABLE/SECURITY GROUP) set as at the end of the Labo2.
 * 1 AMI of your Drupal instance
-* 0 existing ec2 (even is in stopped state)
+* 0 existing ec2 (even is in a stopped state)
 * 1 RDS Database instance - started
 * 1 Elastic Load Balancer - started
 
-## Create a new launch configuration. 
+## Create a new launch template. 
 
 |Key|Value|
 |:--|:--|
@@ -32,12 +32,12 @@
 
 ```
 [INPUT]
-//cli command
+//cli command is optionnal. Important is the screen shot to delivery in next step (testing and validation)
 
 [OUTPUT]
 ```
 
-## Create an auto scaling group
+## Create an autoscaling group
 
 * Choose launch template or configuration
 
@@ -68,7 +68,7 @@
 
 ```
 [INPUT]
-//cli command
+//cli command is optionnal. Important is the screen shot to delivery in next step (testing and validation)
 
 [OUTPUT]
 ```
