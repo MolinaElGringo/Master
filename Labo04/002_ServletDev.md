@@ -82,9 +82,13 @@ To develop and test the Servlet perform the following steps:
 Deliverables:
 
 ```
-//TODO - Commit and publish the servlet in your repo, in the 'labo4' directory.
+The code of the Servlet is in the file DatastoreWrite.java in the folder Servlet.
 ```
 
-```
-//TODO - Copy a screenshot of the local and the App Engine console with the Datastore Viewer.
-```
+### Local Datastore Viewer
+
+![DataStoreLocal](/Labo04/CloudImages/DataStore.png)
+
+### App Engine Datastore Viewer
+
+![DataStoreAppEngine](/Labo04/CloudImages/DataStoreAppEngine.png)
