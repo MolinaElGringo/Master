@@ -137,7 +137,7 @@ seb@LAPTOP-C6G31NF2:~/HEIG-CLD$
 
 # we can see that the server is not able to handle the load after 500 requests or higher
 
-# during the attack:
+# during the attack the first attack, here is the result of the hpa:
 C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
 NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
 frontend-deploy   Deployment/frontend-deploy   48%/30%   1         4         4          2m24s
