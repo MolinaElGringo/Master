@@ -181,6 +181,7 @@ Document your observations in the lab report. Document any difficulties you face
 
 > // Everythin§g went smoothly, and I encountered no issues during the deployment of the YAML files, attempting to delete Pods, or scaling the number of instances. The application remained functional throughout the process, and the Replica Sets were successfully created. The autoscaling feature was also implemented without any problems. but the server was not able to handle the load after 500 requests or higher.
 
+
 ```````bash
 // TODO object descriptions
 C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl describe deployments
@@ -371,6 +372,7 @@ spec:
 
 ```yaml
 # frontend-deploy.yaml
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
