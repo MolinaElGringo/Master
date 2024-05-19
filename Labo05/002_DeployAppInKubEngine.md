@@ -129,4 +129,3 @@ Events:
   Normal  EnsuringLoadBalancer  18m   service-controller  Ensuring load balancer
   Normal  EnsuredLoadBalancer   17m   service-controller  Ensured load balancer
 ```
-

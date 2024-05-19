@@ -229,7 +229,7 @@ Containers:
     Mounts:
       /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-gtwws (ro)
 
-# I did the description after having done the second task. so that's there is information about the cluster and the nodes.
+# I did the description after having done the second task. so that's why there is information about the cluster and the nodes. but I think it should be almost the same if the cluster wasn't done. I think the only difference would be the cluster information.
 
 Conditions:
   Type              Status
