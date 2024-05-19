@@ -179,7 +179,7 @@ frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4  
 
 Document your observations in the lab report. Document any difficulties you faced and how you overcame them. Copy the object descriptions into the lab report.
 
-> // Everythin§g went smoothly, and I encountered no issues during the deployment of the YAML files, attempting to delete Pods, or scaling the number of instances. The application remained functional throughout the process, and the Replica Sets were successfully created. The autoscaling feature was also implemented without any problems. but the server was not able to handle the load after 500 requests or higher.
+> // Everything went smoothly, and I encountered no issues during the deployment of the YAML files, attempting to delete Pods, or scaling the number of instances. The application remained functional throughout the process, and the Replica Sets were successfully created. The autoscaling feature was also implemented without any problems. but the server was not able to handle the load after 500 requests or higher.
 
 
 ```````bash
