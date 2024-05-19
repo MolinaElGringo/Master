@@ -1,0 +1,100 @@
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   48%/30%   1         4         4          2m24s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   48%/30%   1         4         4          2m29s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          2m39s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          2m45s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          2m51s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          2m55s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   5%/30%    1         4         4          3m6s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   5%/30%    1         4         4          3m13s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          4m8s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          4m16s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          4m19s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          4m30s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          4m38s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          6m15s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          6m16s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl get hpa
+NAME              REFERENCE                    TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+frontend-deploy   Deployment/frontend-deploy   0%/30%    1         4         4          6m18s
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>
+
+vegeta repport:
+
+seb@LAPTOP-C6G31NF2:~/HEIG-CLD$ echo "GET http://34.65.237.234" | vegeta attack -duration=60s -rate=10 | vegeta report
+Requests      [total, rate, throughput]         600, 10.02, 10.00
+Duration      [total, attack, wait]             59.979s, 59.9s, 79.389ms
+Latencies     [min, mean, 50, 90, 95, 99, max]  53.305ms, 115.158ms, 112.772ms, 172.701ms, 203.349ms, 340.53ms, 525.58ms
+Bytes In      [total, mean]                     378600, 631.00
+Bytes Out     [total, mean]                     0, 0.00
+Success       [ratio]                           100.00%
+Status Codes  [code:count]                      200:600
+Error Set:
+seb@LAPTOP-C6G31NF2:~/HEIG-CLD$ echo "GET http://34.65.8.43/" | vegeta attack -duration=1m -rate=500 | vegeta report --type=text
+Requests      [total, rate, throughput]         30000, 500.02, 0.00
+Duration      [total, attack, wait]             59.998s, 59.998s, 71.5µs
+Latencies     [min, mean, 50, 90, 95, 99, max]  40.701µs, 1.018s, 132.302µs, 181.355µs, 220.779µs, 30s, 30.032s
+Bytes In      [total, mean]                     0, 0.00
+Bytes Out     [total, mean]                     0, 0.00
+Success       [ratio]                           0.00%
+Status Codes  [code:count]                      0:30000
+Error Set:
+Get "http://34.65.8.43/": dial tcp 0.0.0.0:0->34.65.8.43:80: socket: too many open files
+Get "http://34.65.8.43/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+seb@LAPTOP-C6G31NF2:~/HEIG-CLD$ echo "GET http://34.65.8.43/" | vegeta attack -duration=1m -rate=1000 | vegeta report
+Requests      [total, rate, throughput]         60000, 1000.01, 0.00
+Duration      [total, attack, wait]             59.999s, 59.999s, 79.301µs
+Latencies     [min, mean, 50, 90, 95, 99, max]  40.5µs, 509.126ms, 122.671µs, 160.154µs, 181.816µs, 30s, 30.001s
+Bytes In      [total, mean]                     0, 0.00
+Bytes Out     [total, mean]                     0, 0.00
+Success       [ratio]                           0.00%
+Status Codes  [code:count]                      0:60000
+Error Set:
+Get "http://34.65.8.43/": dial tcp 0.0.0.0:0->34.65.8.43:80: socket: too many open files
+Get "http://34.65.8.43/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+seb@LAPTOP-C6G31NF2:~/HEIG-CLD$

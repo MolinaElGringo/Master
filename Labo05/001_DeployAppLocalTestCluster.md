@@ -175,18 +175,124 @@ You should see the application's main page titled __Todos V2__ and you should be
 
 Document any difficulties you faced and how you overcame them. Copy the object descriptions into the lab report.
 
-> // TODO
+> // At first, I had some trouble with the communication between the frontend and the API pod. I didn't understood at first that the API Pod was simply missing from the list of resources. in order to fix that, I check the logs and found an ECONNREFUSED error. I then simply checked the API Pod list and quickly realized and fixed the issue. but besides that, everything went smoothly. I think I had no isssues with the yaml files.
+```bash
+# object descriptions api-svc
 
-```````
-// TODO object descriptions
-```````
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl describe service/api-svc
+Name:              api-svc
+Namespace:         default
+Labels:            app=todo
+                   component=api
+Annotations:       cloud.google.com/neg: {"ingress":true}
+Selector:          app=todo,component=api
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.26.185.136
+IPs:               10.26.185.136
+Port:              <unset>  8081/TCP
+TargetPort:        8081/TCP
+Endpoints:         10.56.0.7:8081
+Session Affinity:  None
+Events:            <none>
+
+# object descriptions frontend
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl describe pod/frontend
+Name:             frontend
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-gke-cluster-1-default-pool-90ff14ac-qxrb/10.172.0.3
+Start Time:       Fri, 17 May 2024 16:08:51 +0200
+Labels:           app=todo
+                  component=frontend
+Annotations:      <none>
+Status:           Running
+IP:               10.56.0.8
+IPs:
+  IP:  10.56.0.8
+Containers:
+  frontend:
+    Container ID:   containerd://1fb8292754224e8b054cbe5888cdf12426d666e5abe3dc54a1203cb6137d807c
+    Image:          icclabcna/ccp2-k8s-todo-frontend
+    Image ID:       docker.io/icclabcna/ccp2-k8s-todo-frontend@sha256:5892b8f75a4dd3aa9d9cf527f8796a7638dba574ea8e6beef49360a3c67bbb44
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 17 May 2024 16:09:17 +0200
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      API_ENDPOINT_URL:  http://api-svc:8081
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-gtwws (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  kube-api-access-gtwws:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned default/frontend to gke-gke-cluster-1-default-pool-90ff14ac-qxrb
+  Normal  Pulling    11m   kubelet            Pulling image "icclabcna/ccp2-k8s-todo-frontend"
+  Normal  Pulled     11m   kubelet            Successfully pulled image "icclabcna/ccp2-k8s-todo-frontend" in 23.239s (23.239s including waiting)
+  Normal  Created    11m   kubelet            Created container frontend
+  Normal  Started    11m   kubelet            Started container frontend
+```
 
 ```yaml
 # api-svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-svc
+  labels:
+    component: api
+    app: todo
+spec:
+  ports:
+  - port: 8081
+    targetPort: 8081
+    protocol: TCP
+  selector:
+    app: todo
+    component: api
+  type: ClusterIP
 ```
 
 ```yaml
 # frontend-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend
+  labels:
+    component: frontend
+    app: todo
+spec:
+  containers:
+  - name: frontend
+    image: icclabcna/ccp2-k8s-todo-frontend
+    ports:
+    - containerPort: 8080
+    env:
+    - name: API_ENDPOINT_URL
+      value: "http://api-svc:8081"
 ```
 
 > [!TIP]
