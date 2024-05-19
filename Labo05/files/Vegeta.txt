@@ -75,7 +75,7 @@ Bytes Out     [total, mean]                     0, 0.00
 Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:600
 Error Set:
-seb@LAPTOP-C6G31NF2:~/HEIG-CLD$ echo "GET http://34.65.8.43/" | vegeta attack -duration=1m -rate=500 | vegeta report --type=text
+seb@LAPTOP-C6G31NF2:~/HEIG-CLD$ echo "GET http://34.65.8.43/" | vegeta attack -duration=1m -rate=500 | vegeta report 
 Requests      [total, rate, throughput]         30000, 500.02, 0.00
 Duration      [total, attack, wait]             59.998s, 59.998s, 71.5µs
 Latencies     [min, mean, 50, 90, 95, 99, max]  40.701µs, 1.018s, 132.302µs, 181.355µs, 220.779µs, 30s, 30.032s
