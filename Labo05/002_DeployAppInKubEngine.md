@@ -99,7 +99,7 @@ spec:
 
 Take a screenshot of the cluster details from the GKE console. Copy the output of the `kubectl describe` command to describe your load balancer once completely initialized.
 
-![GKE Cluster](files\ConfigCluster.png)
+![GKE Cluster](files/ConfigCluster.png)
 
 ```bash
 # object descriptions for the frontend service
