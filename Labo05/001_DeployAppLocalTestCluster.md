@@ -228,6 +228,9 @@ Containers:
       API_ENDPOINT_URL:  http://api-svc:8081
     Mounts:
       /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-gtwws (ro)
+
+# I did the description after having done the second task. so that's there is information about the cluster and the nodes.
+
 Conditions:
   Type              Status
   Initialized       True

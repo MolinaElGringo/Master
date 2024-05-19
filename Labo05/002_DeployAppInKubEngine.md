@@ -65,20 +65,68 @@ Now you can verify if the ToDo application is working correctly.
 
 Document any difficulties you faced and how you overcame them. Copy the object descriptions into the lab report (if they are unchanged from the previous task just say so).
 
-> // TODO
+> // Similarly to the previous task, I encountered no issues with creating and deploying the YAML files. However, the main challenge arose during the installation of the gcloud plugin. Despite multiple attempts, the download process consistently stalled at 100%, rendering the installation unsuccessful on my machine. As a workaround, I opted to install the plugin using the command terminal instead of WSL. Unfortunately, this necessitated reinstalling all components from scratch which was time-consuming. Nevertheless, I was able to successfully deploy the application on the GKE cluster. 
 
 ```````
-// TODO object descriptions
+// object descriptions
+
+It is normaly the same as in the previous task but with the following changes:
+
+the cluster details from the GKE console (see in the first subtask)
+
+the output of the `kubectl describe` command to describe your load balancer once completely initialized (see below)
 ```````
 
 ```yaml
 # frontend-svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-svc
+  labels:
+    component: frontend
+    app: todo
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: todo
+    component: frontend
 ```
 
 Take a screenshot of the cluster details from the GKE console. Copy the output of the `kubectl describe` command to describe your load balancer once completely initialized.
 
-> // TODO
+![GKE Cluster](files\ConfigCluster.png)
 
-```````
-// TODO object descriptions
-```````
+```bash
+# object descriptions for the frontend service
+
+C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl describe service/frontend-svc
+Name:                     frontend-svc
+Namespace:                default
+Labels:                   app=todo
+                          component=frontend
+Annotations:              cloud.google.com/neg: {"ingress":true}
+Selector:                 app=todo,component=frontend
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.26.182.4
+IPs:                      10.26.182.4
+LoadBalancer Ingress:     34.65.237.234
+Port:                     <unset>  80/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  32504/TCP
+Endpoints:                10.56.0.8:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  18m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   17m   service-controller  Ensured load balancer
+```
+
