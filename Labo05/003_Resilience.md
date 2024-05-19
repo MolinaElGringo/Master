@@ -183,7 +183,7 @@ Document your observations in the lab report. Document any difficulties you face
 
 
 ```````bash
-// TODO object descriptions
+// Object descriptions
 C:\Users\diazs\OneDrive\Desktop\Cloud\Master\Labo05\files>kubectl describe deployments
 
 # api-deploy
